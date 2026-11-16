@@ -1,0 +1,40 @@
+
+import { NavLink, Outlet } from 'react-router-dom'
+import { supabase } from '../lib/supabase'
+import './AdminLayout.css'
+
+function AdminLayout() {
+  async function handleLogout() {
+    await supabase.auth.signOut()
+    window.location.href = '/admin'
+  }
+
+  return (
+    <div className="admin-layout">
+      <aside className="admin-sidebar">
+        <img
+          src="/images/fwng-banner.png"
+          alt="Fashion World NG"
+        />
+
+        <h2>FWNG ADMIN</h2>
+
+        <nav>
+          <NavLink to="/admin/dashboard">Dashboard</NavLink>
+          <NavLink to="/admin/products">Products</NavLink>
+          <NavLink to="/admin/orders">Orders</NavLink>
+          <NavLink to="/admin/inventory">Inventory</NavLink>
+          <NavLink to="/admin/settings">Settings</NavLink>
+        </nav>
+
+        <button onClick={handleLogout}>Sign Out</button>
+      </aside>
+
+      <main className="admin-main">
+        <Outlet />
+      </main>
+    </div>
+  )
+}
+
+export default AdminLayout

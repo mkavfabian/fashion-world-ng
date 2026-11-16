@@ -1,0 +1,167 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Montserrat', sans-serif;
+  color: #f5f0e7;
+  background: #090909;
+  font-synthesis: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #090909;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
+  background: #090909;
+  border-bottom: 1px solid #b89543;
+}
+
+.navbar h2 {
+  font-family: 'Cormorant Garamond', serif;
+  color: #d6ad52;
+  font-size: 34px;
+  letter-spacing: 5px;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar a {
+  color: #f5f0e7;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.navbar a:hover {
+  color: #d6ad52;
+}
+
+.hero {
+  width: 100%;
+  background: #090909;
+}
+
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.intro {
+  text-align: center;
+  padding: 85px 20px;
+}
+
+.intro p {
+  color: #d6ad52;
+  letter-spacing: 6px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.intro h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 55px);
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.intro span {
+  color: #b9b3a7;
+  font-size: 14px;
+}
+
+.shop-button {
+  display: table;
+  margin: 35px auto 0;
+  padding: 16px 32px;
+  border: 1px solid #d6ad52;
+  color: #d6ad52;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.shop-button:hover {
+  background: #d6ad52;
+  color: #090909;
+}
+
+.collection {
+  text-align: center;
+  padding: 70px 20px;
+  background: #111;
+}
+
+.collection h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  color: #d6ad52;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.collection p {
+  color: #aaa;
+}
+
+footer {
+  text-align: center;
+  padding: 50px 20px;
+  border-top: 1px solid #8b6c30;
+}
+
+footer h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  color: #d6ad52;
+  letter-spacing: 5px;
+}
+
+footer p {
+  color: #aaa;
+  margin-top: 12px;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .navbar nav {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navbar a {
+    font-size: 11px;
+  }
+
+  .intro {
+    padding: 55px 15px;
+  }
+}
