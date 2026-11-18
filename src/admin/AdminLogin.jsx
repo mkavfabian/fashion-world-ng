@@ -27,10 +27,19 @@ function AdminLogin() {
         .eq('id', data.user.id)
         .single()
 
-      if (profileError || profile?.role !== 'admin') {
-        await supabase.auth.signOut()
-        throw new Error('You are not authorised to access the admin dashboard.')
-      }
+      if (profileError) {
+  console.error('Profile lookup error:', profileError)
+  await supabase.auth.signOut()
+  throw new Error(`Profile lookup failed: ${profileError.message}`)
+}
+
+if (!profile || profile.role !== 'admin') {
+  console.log('Profile returned:', profile)
+  await supabase.auth.signOut()
+  throw new Error(
+    `Admin access denied. Role found: ${profile?.role || 'No profile found'}`
+  )
+}
 
       window.location.href = '/admin/dashboard'
     } catch (error) {
