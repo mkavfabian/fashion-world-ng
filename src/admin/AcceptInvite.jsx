@@ -9,7 +9,7 @@ function AcceptInvite() {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
-
+const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   async function handleSubmit(e) {
     e.preventDefault()
     setMessage('')
@@ -80,14 +80,25 @@ function AcceptInvite() {
 
         <label>Confirm Password</label>
         <input
-          type="password"
+          type={showConfirmPassword ? "text" : "password"}
           value={confirmPassword}
           onChange={e => setConfirmPassword(e.target.value)}
           minLength={8}
           required
           style={{ width: '100%', padding: '12px', margin: '10px 0 20px' }}
         />
-
+<button
+  type="button"
+  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+  disabled={loading}
+  style={{
+    marginBottom: '15px',
+    padding: '8px 15px',
+    cursor: 'pointer'
+  }}
+>
+  {showConfirmPassword ? 'Hide Password' : 'Show Password'}
+</button>
         <button type="submit" disabled={loading} style={{
           width: '100%',
           padding: '14px',
