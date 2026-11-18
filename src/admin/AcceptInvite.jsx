@@ -10,7 +10,8 @@ function AcceptInvite() {
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
 const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-  async function handleSubmit(e) {
+ const [showPassword, setShowPassword] = useState(false)
+async function handleSubmit(e) {
     e.preventDefault()
     setMessage('')
 
@@ -70,14 +71,20 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
         <label>New Password</label>
         <input
-          type="password"
+          type={showPassword ? "text" : "password"}
           value={password}
           onChange={e => setPassword(e.target.value)}
           minLength={8}
           required
           style={{ width: '100%', padding: '12px', margin: '10px 0 20px' }}
         />
-
+<button
+  type="button"
+  onClick={() => setShowPassword(!showPassword)}
+  style={{ margin: '5px 0 15px', padding: '8px 16px', cursor: 'pointer' }}
+>
+  {showPassword ? 'Hide Password' : 'Show Password'}
+</button>
         <label>Confirm Password</label>
         <input
           type={showConfirmPassword ? "text" : "password"}
